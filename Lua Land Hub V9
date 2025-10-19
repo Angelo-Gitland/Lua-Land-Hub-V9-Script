@@ -12,10 +12,14 @@ local Window = Fluent:CreateWindow({
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true,
     Theme = "Dark",
-    MinimizeKey = Enum.KeyCode.LeftControl
+    MinimizeKey = Enum.KeyCode.LeftControl,
+    Scrollable = true -- ✅ Makes the left tab list scrollable!
 })
 
+-- Tabs (Reordered)
 local Tabs = {
+    Info = Window:AddTab({ Title = "Information", Icon = "info" }),
+    Changelog = Window:AddTab({ Title = "Changelogs", Icon = "list" }),
     Games = Window:AddTab({ Title = "Script Games", Icon = "gamepad" }),
     Universal = Window:AddTab({ Title = "Universal Scripts", Icon = "globe" }),
     Admin = Window:AddTab({ Title = "Admin Scripts", Icon = "shield" }),
@@ -26,11 +30,13 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
+-- Scrollable Sections
 local Sections = {}
 for name, tab in pairs(Tabs) do
-    Sections[name] = tab:AddSection("Scroll Area")
+    Sections[name] = tab
 end
 
+-- Script Button Helper
 local function addScript(tabName, title, url)
     Sections[tabName]:AddButton({
         Title = title,
@@ -40,6 +46,7 @@ local function addScript(tabName, title, url)
     })
 end
 
+-- Clipboard Button Helper
 local function addClipboard(tabName, title, link)
     Sections[tabName]:AddButton({
         Title = title,
@@ -50,6 +57,31 @@ local function addClipboard(tabName, title, link)
     })
 end
 
+-- ✅ Information Tab
+local player = game.Players.LocalPlayer
+local name = player.Name
+local age = player.AccountAge
+local sex = player.Character and player.Character:FindFirstChild("Body Colors") and "Male" or "Female"
+local serverCount = #game.Players:GetPlayers()
+local fps = math.floor(1 / game:GetService("RunService").RenderStepped:Wait())
+local rigType = player.Character and player.Character:FindFirstChildOfClass("Humanoid") and player.Character:FindFirstChildOfClass("Humanoid").RigType.Name or "Unknown"
+local apiStatus = typeof(game.HttpGet) == "function" and "Working" or "Not Working"
+
+Sections.Info:AddParagraph({
+    Title = "Player Information",
+    Content = string.format(
+        "Name: %s\nAccount Age: %d days\nSex: %s\nServer: %d players\nFPS: %d\nRig Type: %s\nAPI: %s",
+        name, age, sex, serverCount, fps, rigType, apiStatus
+    )
+})
+
+-- ✅ Changelogs Tab
+Sections.Changelog:AddParagraph({
+    Title = "Changelogs",
+    Content = "[ + ] Added More Features\n[ + ] Fixed Some Bugs\n[ + ] Added Information Tab\n[ + ] UI Changed To Fluent Library"
+})
+
+-- ✅ Script Games Example
 addScript("Games", "Murderer Vs Sheriff", "https://gist.githubusercontent.com/Angelo-Gitland/2c27216aac9911404f990398aff463a7/raw/180ca414827686d3ab9caae3067ba4f09136f712/Lua%2520Land%2520Hub%2520100+%2520Supported%2520Games")
 addScript("Games", "Toilet Tower Defense", "https://raw.githubusercontent.com/LOLking123456/Toilet6/main/Tower5")
 addScript("Games", "Arise Crossover", "https://raw.githubusercontent.com/perfectusmim1/script/main/crossover")
@@ -199,15 +231,10 @@ addScript("Games", "Hit the Thrift", "https://raw.githubusercontent.com/ProXSC/P
 addScript("Games", "Build a Rocket Ship", "https://raw.githubusercontent.com/Matej1912/Build-a-Rocket-Ship/refs/heads/main/Script")
 addScript("Games", "Bomb to Mine", "https://raw.githubusercontent.com/gumanba/Scripts/main/BombtoMine")
 
-addScript("Universal", "Go0bysworld f3x v2", "https://rawscripts.net/raw/Universal-Script-go0bysworld-f3x-v2-57826")
-addScript("Universal", "Zero Executor", "https://pastebin.com/raw/g4QbgAHh")
-addScript("Universal", "MOGExecutor", "https://pastebin.com/raw/sEK3Ys1w")
-addScript("Universal", "YouTube In Roblox", "https://rawscripts.net/raw/Universal-Script-Youtube-in-Roblox-57836")
-addScript("Universal", "PFFF3x Gui", "https://rawscripts.net/raw/Universal-Script-PFFF3XGUI-57834")
-addScript("Universal", "Slime Executor", "https://pastebin.com/raw/8DvT8fsy")
-addScript("Universal", "da esex Club Private Gui", "https://pastebin.com/raw/VF16ySJn")
-addScript("Universal", "CraxyXploitzGui", "https://pastebin.com/raw/UUK42HeB")
+-- ✅ Universal Scripts Example
+addScript("Universal", "YouTube in Roblox", "https://rawscripts.net/raw/Universal-Script-Youtube-in-Roblox-57836")
 
+-- ✅ Admin Scripts Example
 addScript("Admin", "Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
 addScript("Admin", "Kohls Admin", "https://raw.githubusercontent.com/Stefanuk12/ROBLOX/master/Games/Kohls%20Admin%20House/DarkKohls/GUI.lua")
 addScript("Admin", "Legs Admin", "https://raw.githubusercontent.com/leg1337/legadmv2/main/legadminv2.lua")
@@ -230,3 +257,31 @@ addScript("Admin", "Deem Admin [BETA]", "https://raw.githubusercontent.com/neatd
 addScript("Admin", "Catalog Heaven Admin", "https://pastebin.com/raw/ftdLpbCg")
 addScript("Admin", "Op Admin Private", "https://raw.githubusercontent.com/addihallstar/opadminsupreme/refs/heads/main/opadmin_new.lua")
 addScript("Admin", "Lxte Cmds", "https://raw.githubusercontent.com/lxte/cmd/main/testing-main.lua")
+
+-- Script Hub
+addScript("Hub", "LDS Hub", "https://api.luarmor.net/files/v3/loaders/49f02b0d8c1f60207c84ae76e12abc1e.lua")
+
+-- Scanner
+addScript("Scanner", "Doors Hub Backdoor Scanner", "https://doorhubs.pages.dev/DoorSystem.lua")
+
+Sections.Credits:AddParagraph({
+    Title = "Credits",
+    Content = "Script Made By: LLH Lua Land\nScript Director: Eric_3337\nScript Testers: BaconDaGoofyCreator"
+})
+addClipboard("Credits", "Join Lua Land Hub", "https://discord.gg/G6Te5p2NeC")
+addClipboard("Credits", "Join Eric_3337", "https://discord.gg/TPwmVMXJHN")
+addClipboard("Credits", "Join BaconDaGoofyCreator", "https://discord.gg/Q8vUUhgw8A")
+
+-- ✅ SaveManager + InterfaceManager
+SaveManager:SetLibrary(Fluent)
+InterfaceManager:SetLibrary(Fluent)
+SaveManager:IgnoreThemeSettings()
+SaveManager:SetIgnoreIndexes({})
+InterfaceManager:SetFolder("LuaLandHub")
+SaveManager:SetFolder("LuaLandHub/Configs")
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+SaveManager:BuildConfigSection(Tabs.Settings)
+
+Window:SelectTab(1)
+Fluent:Notify({ Title = "Lua Land Hub", Content = "Script Loaded Successfully!", Duration = 8 })
+SaveManager:LoadAutoloadConfig()

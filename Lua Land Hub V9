@@ -518,6 +518,15 @@ addScript("Hub", "Ruix Hub V1.0.1", "https://pastebin.com/raw/yutrKkHc")
 
 -- Scanner
 addScript("Scanner", "Doors Hub Backdoor Scanner", "https://doorhubs.pages.dev/DoorSystem.lua")
+addScript("Scanner", "Starlight", "https://starlightrbx.netlify.app/")
+addScript("Scanner", "Saturn Backdoor Scanner", "https://pastefy.app/8NyW2mEZ/raw")
+addScript("Scanner", "Lalol Hub", "https://raw.githubusercontent.com/its-LALOL/LALOL-Hub/main/Backdoor-Scanner/script")
+addScript("Scanner", "Rosys Backdoor Scanner", "https://pastebin.com/raw/dptQMT9x")
+addScript("Scanner", "Backdoor Scanner SS", "https://protected-roblox-scripts.onrender.com/e199278d9c668d20a456f327c7045641")
+addScript("Scanner", "Jalon's Backdoor Scanner", "https://raw.githubusercontent.com/jLn0n/scripts/main/backdoor-executor/backdoor-executor.lua")
+addScript("Scanner", "Skibidi Hawk", "https://skibidihawkexecutor.fwh.is/scripts%20;D/skibidihawkexecutor-latest")
+addScript("Scanner", "Lua Land Hub Scanner [BY LLH Lua Land]", "https://raw.githubusercontent.com/Angelo-Gitland/LuaLandBackdoorExecutor/refs/heads/main/Lua%20Land%20Executor%20Backdoor")
+addScript("Scanner", "Backdoor Legacy Scanner", "https://protected-roblox-scripts.onrender.com/e199278d9c668d20a456f327c7045641")
 
 Sections.Credits:AddParagraph({
     Title = "Credits",

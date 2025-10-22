@@ -5,12 +5,12 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Lua Land Hub V10",
+    Title = "Lua Land Hub V10 [🍭HAPPY HALLOWEEN!🍭]",
     SubTitle = "BY: LLH LUA LAND",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true,
-    Theme = "rose",
+    Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl,
     Scrollable = true
 })
@@ -25,7 +25,7 @@ local Tabs = {
     Creations = Window:AddTab({ Title = "Creations", Icon = "sparkles" }),
     Scanner = Window:AddTab({ Title = "Backdoor Scanner", Icon = "search" }),
     Credits = Window:AddTab({ Title = "Credits", Icon = "info" }),
-    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
 }
 
 local Sections = {}

@@ -1,22 +1,20 @@
--- Lua Land Hub V9 - Dawid's Fluent UI Version with Scrollable Tabs
--- BY: LLH LUA LAND
+-- Happy Halloween! 🎃
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "Lua Land Hub V9",
+    Title = "Lua Land Hub V10",
     SubTitle = "BY: LLH LUA LAND",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true,
-    Theme = "Dark",
+    Theme = "rose",
     MinimizeKey = Enum.KeyCode.LeftControl,
-    Scrollable = true -- ✅ Makes the left tab list scrollable!
+    Scrollable = true
 })
 
--- Tabs (Reordered)
 local Tabs = {
     Info = Window:AddTab({ Title = "Information", Icon = "info" }),
     Changelog = Window:AddTab({ Title = "Changelogs", Icon = "list" }),
@@ -30,13 +28,11 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
--- Scrollable Sections
 local Sections = {}
 for name, tab in pairs(Tabs) do
     Sections[name] = tab
 end
 
--- Script Button Helper
 local function addScript(tabName, title, url)
     Sections[tabName]:AddButton({
         Title = title,
@@ -46,7 +42,6 @@ local function addScript(tabName, title, url)
     })
 end
 
--- Clipboard Button Helper
 local function addClipboard(tabName, title, link)
     Sections[tabName]:AddButton({
         Title = title,
@@ -57,7 +52,6 @@ local function addClipboard(tabName, title, link)
     })
 end
 
--- ✅ Information Tab
 local player = game.Players.LocalPlayer
 local name = player.Name
 local age = player.AccountAge
@@ -75,13 +69,11 @@ Sections.Info:AddParagraph({
     )
 })
 
--- ✅ Changelogs Tab
 Sections.Changelog:AddParagraph({
     Title = "Changelogs",
     Content = "[ + ] Added More Features\n[ + ] Fixed Some Bugs\n[ + ] Added Information Tab\n[ + ] UI Changed To Fluent Library"
 })
 
--- ✅ Script Games Example
 addScript("Games", "Murderer Vs Sheriff", "https://gist.githubusercontent.com/Angelo-Gitland/2c27216aac9911404f990398aff463a7/raw/180ca414827686d3ab9caae3067ba4f09136f712/Lua%2520Land%2520Hub%2520100+%2520Supported%2520Games")
 addScript("Games", "Toilet Tower Defense", "https://raw.githubusercontent.com/LOLking123456/Toilet6/main/Tower5")
 addScript("Games", "Arise Crossover", "https://raw.githubusercontent.com/perfectusmim1/script/main/crossover")
@@ -231,7 +223,6 @@ addScript("Games", "Hit the Thrift", "https://raw.githubusercontent.com/ProXSC/P
 addScript("Games", "Build a Rocket Ship", "https://raw.githubusercontent.com/Matej1912/Build-a-Rocket-Ship/refs/heads/main/Script")
 addScript("Games", "Bomb to Mine", "https://raw.githubusercontent.com/gumanba/Scripts/main/BombtoMine")
 
--- ✅ Universal Scripts Example
 addScript("Universal", "SSTICKDUD GUI", "https://gist.githubusercontent.com/Angelo-Gitland/61301a7d73b79da32642cf9ef93b2437/raw/3dd135b6921c0b5cb91c04c624e193f7de8f7dfe/SSTICKDUD%2520GUI")
 addScript("Universal", "R3 GUI", "https://raw.githubusercontent.com/R3LIST/r3gui/main/main.lua")
 addScript("Universal", "Esp", "https://rawscripts.net/raw/Universal-Script-ESP-any-game-47981")
@@ -367,7 +358,6 @@ addScript("Universal", "YouTube In Roblox", "https://rawscripts.net/raw/Universa
 addScript("Universal", "PFFF3X GUI", "https://rawscripts.net/raw/Universal-Script-PFFF3XGUI-57834")
 addScript("Universal", "c00lkidd Universal Gui By team c00lkidd [FE]", "https://pastebin.com/raw/YtX6zaFJ")
 
--- ✅ Admin Scripts Example
 addScript("Admin", "Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
 addScript("Admin", "Kohls Admin", "https://raw.githubusercontent.com/Stefanuk12/ROBLOX/master/Games/Kohls%20Admin%20House/DarkKohls/GUI.lua")
 addScript("Admin", "Legs Admin", "https://raw.githubusercontent.com/leg1337/legadmv2/main/legadminv2.lua")
@@ -391,7 +381,6 @@ addScript("Admin", "Catalog Heaven Admin", "https://pastebin.com/raw/ftdLpbCg")
 addScript("Admin", "Op Admin Private", "https://raw.githubusercontent.com/addihallstar/opadminsupreme/refs/heads/main/opadmin_new.lua")
 addScript("Admin", "Lxte Cmds", "https://raw.githubusercontent.com/lxte/cmd/main/testing-main.lua")
 
--- Script Hub
 addScript("Hub", "Ghost Hub", "https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub")
 addScript("Hub", "VirusPirusDirus Hub", "https://raw.githubusercontent.com/InnocentViru/VirusPirusDirus-Script-Hub/refs/heads/main/VirusPirusDirus%20Script%20Hub")
 addScript("Hub", "Hive Hub", "https://raw.githubusercontent.com/iamnotadingus/Hive-Hub/refs/heads/main/RELEASED")
@@ -516,7 +505,6 @@ addScript("Hub", "Mr Joe Hub", "https://pastebin.com/raw/vWVB9V8A")
 addScript("Hub", "Trz Hub V2", "https://pastebin.com/raw/yCGKeQvg")
 addScript("Hub", "Ruix Hub V1.0.1", "https://pastebin.com/raw/yutrKkHc")
 
--- Scanner
 addScript("Scanner", "Doors Hub Backdoor Scanner", "https://doorhubs.pages.dev/DoorSystem.lua")
 addScript("Scanner", "Starlight", "https://starlightrbx.netlify.app/")
 addScript("Scanner", "Saturn Backdoor Scanner", "https://pastefy.app/8NyW2mEZ/raw")
@@ -536,7 +524,6 @@ addClipboard("Credits", "Join Lua Land Hub", "https://discord.gg/G6Te5p2NeC")
 addClipboard("Credits", "Join Eric_3337", "https://discord.gg/TPwmVMXJHN")
 addClipboard("Credits", "Join BaconDaGoofyCreator", "https://discord.gg/Q8vUUhgw8A")
 
--- ✅ SaveManager + InterfaceManager
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 SaveManager:IgnoreThemeSettings()
